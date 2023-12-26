@@ -13,9 +13,8 @@
 
   <header class="header">
     <div class="header-content">
-      {{-- <h1>Graceful Haven Care Home</h1> --}}
+        <p class="header-title">Graceful Haven Care Home</p>
       <h1></h1>
-        {{-- <img src="images/cane.png" alt="Image 1"> --}}
       <div class="buttons">
         <a href="/register"><button class="signup" >Sign Up</button></a>
         <a href="/login"><button class="login">Login</button></a>
@@ -28,7 +27,7 @@
           <h1>Graceful
             Haven Care Home</h1>
           <p>Where Compassion Meets
-            Care in Every Step</p>
+            Care at Every Step</p>
         </div>
       </div>
       <div class="right">
@@ -65,7 +64,7 @@
       </div>
     </div>
     <div class="testimonials-container">
-      <h1>Testies</h1>
+      <h1>Testimonials</h1>
 
       <div class="testimonial">
         <h2>Missy Miss</h2>

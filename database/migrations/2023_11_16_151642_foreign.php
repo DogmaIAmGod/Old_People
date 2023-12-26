@@ -9,9 +9,6 @@ return new class extends Migration
     public function up()
     {
 
-
-
-        
         //individuals
         Schema::table('individuals', function (Blueprint $table) {
             // $table->foreign('roleID')->references('roleID')->on('roles');
@@ -62,13 +59,13 @@ return new class extends Migration
             $table->foreign('individualID')->references('individualID')->on('individuals');
         });
 
-        
+
 
 //caregivers
         Schema::table('caregivers', function (Blueprint $table) {
             $table->foreign('individualID')->references('individualID')->on('individuals');
             $table->foreign('careGroupID')->references('careGroupID')->on('caregroup');
-        
+
         });
 //rosters
         // Schema::table('rosters', function (Blueprint $table) {
@@ -77,20 +74,20 @@ return new class extends Migration
         //     $table->foreign('caregiverID')->references('caregiverID')->on('caregivers');
         // });
 
-        //home_care
+//home_care
         Schema::table('home_care', function (Blueprint $table) {
              $table->foreign('patientID')->references('patientID')->on('patients');
              $table->foreign('doctorID')->references('doctorID')->on('doctors');
              $table->foreign('caregiverID')->references('caregiverID')->on('caregivers');
         });
 
-        //caregroup
+//caregroup
         Schema::table('caregroup', function (Blueprint $table) {
             $table->foreign('individualID')->references('individualID')->on('individuals');
             $table->foreign('caregiverID')->references('caregiverID')->on('caregivers');
 
        });
-        
+
     }
 
 
@@ -98,7 +95,7 @@ return new class extends Migration
 {
     // Drop foreign keys in reverse order of creation
 
-    
+
 
     // Drop from home_care table
     Schema::table('home_care', function (Blueprint $table) {
@@ -113,7 +110,7 @@ return new class extends Migration
     //     $table->dropForeign(['doctorID']);
     //     $table->dropForeign(['caregiverID']);
     // });
-    
+
 
     // Drop from caregivers table
     Schema::table('caregivers', function (Blueprint $table) {
@@ -171,7 +168,7 @@ return new class extends Migration
         // $table->dropForeign(['roleID']);
     });
 
-    
+
 }
 };
 

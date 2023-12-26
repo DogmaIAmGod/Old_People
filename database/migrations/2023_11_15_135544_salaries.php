@@ -15,7 +15,6 @@ return new class extends Migration
          Schema::create('salaries', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('individualID')->nullable();
-            // $table->foreign('individualID')->references('individualID')->on('individuals');
             $table->integer('salary')->nullable();
             $table->timestamps();
         });

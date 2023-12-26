@@ -15,7 +15,6 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id('paymentID');
             $table->unsignedBigInteger('patientID')->nullable();
-            // $table->foreign('patientID')->references('patientID')->on('patients');
             $table->integer('totalDue')->nullable();
             $table->integer('payments')->nullable();
             $table->timestamps();

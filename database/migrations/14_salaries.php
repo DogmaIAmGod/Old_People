@@ -6,23 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-         // salaries table
          Schema::create('salaries', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('individualID')->nullable();
-            $table->integer('salary')->nullable();
+            $table->id('salaryID');
+            $table->unsignedBigInteger('individualID');
+            $table->integer('salary')->default(0);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('salaries');

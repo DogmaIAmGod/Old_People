@@ -6,16 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        // approvals table
-        Schema::create('approvals', function (Blueprint $table) {
-            $table->id('approvalID');
-            $table->unsignedBigInteger('individualID')->nullable();
-            $table->string('role', 255)->nullable();
+        Schema::create('roles', function (Blueprint $table) {
+            $table->id('roleID');
+            $table->string('role');
             $table->timestamps();
         });
     }
@@ -25,6 +20,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('approvals');
+        Schema::dropIfExists('individuals');
     }
 };

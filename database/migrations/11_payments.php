@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-         // supervisors table
-         Schema::create('supervisors', function (Blueprint $table) {
-            $table->id('supervisorID');
-            $table->unsignedBigInteger('individualID')->nullable();
-            // $table->foreign('individualID')->references('individualID')->on('individuals');
+        // payments table
+        Schema::create('payments', function (Blueprint $table) {
+            $table->id('paymentID');
+            $table->unsignedBigInteger('patientID');
+            $table->integer('totalDue')->default(0);
+            $table->integer('payments')->default(0);
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('supervisors');
+        Schema::dropIfExists('payments');
     }
 };

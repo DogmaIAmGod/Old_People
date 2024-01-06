@@ -11,21 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // payments table
-        Schema::create('payments', function (Blueprint $table) {
-            $table->id('paymentID');
-            $table->unsignedBigInteger('patientID')->nullable();
-            $table->integer('totalDue')->nullable();
-            $table->integer('payments')->nullable();
+        // caregivers table
+        Schema::create('caregivers', function (Blueprint $table) {
+            $table->id('caregiverID');
+            $table->unsignedBigInteger('individualID');
+            $table->integer('careGroupID')->default(0);
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('caregivers');
     }
 };

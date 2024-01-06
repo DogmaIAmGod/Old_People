@@ -15,7 +15,6 @@ return new class extends Migration
         Schema::create('caregivers', function (Blueprint $table) {
             $table->id('caregiverID');
             $table->unsignedBigInteger('individualID');
-            $table->integer('careGroupID')->default(0);
             $table->timestamps();
         });
     }

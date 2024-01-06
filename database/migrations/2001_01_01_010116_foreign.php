@@ -9,10 +9,6 @@ return new class extends Migration
     public function up()
     {
 
-        //roles
-        Schema::table('roles', function (Blueprint $table) {
-        });
-
         //individuals
         Schema::table('individuals', function (Blueprint $table) {
             $table->foreign('roleID')->references('roleID')->on('roles');
@@ -33,21 +29,21 @@ return new class extends Migration
             $table->foreign('individualID')->references('individualID')->on('individuals');
         });
 
-        //caregivers
-        Schema::table('caregivers', function (Blueprint $table) {
-            $table->foreign('individualID')->references('individualID')->on('individuals');
+        //care_groups
+        Schema::table('care_groups', function (Blueprint $table) {
+            $table->foreign('caregiverID')->references('caregiverID')->on('caregivers');
         });
 
         //patients
         Schema::table('patients', function (Blueprint $table) {
             $table->foreign('individualID')->references('individualID')->on('individuals');
-            $table->foreign('careGroupID')->references('careGroupID')->on('caregivers');
+            $table->foreign('careGroupID')->references('careGroupID')->on('care_groups');
         });
 
         //cares
         Schema::table('cares', function (Blueprint $table) {
             $table->foreign('patientID')->references('patientID')->on('patients');
-            $table->foreign('caregiverID')->references('careGiverID')->on('caregivers');
+            $table->foreign('caregiverID')->references('caregiverID')->on('caregivers');
         });
 
         //patient_meds
@@ -128,6 +124,11 @@ return new class extends Migration
     Schema::table('patients', function (Blueprint $table) {
         $table->dropForeign(['careGroupID']);
         $table->dropForeign(['individualID']);
+    });
+
+     //care_groups
+     Schema::table('care_groups', function (Blueprint $table) {
+        $table->dropForeign(['caregiverID']);
     });
 
     //caregivers

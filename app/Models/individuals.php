@@ -12,12 +12,12 @@ class individuals extends Model
     protected $primaryKey = 'individualID';
 
     protected $fillable = [
+        'roleID',
         'fName',
         'lName',
         'email',
         'phone',
         'dob',
         'approved',
-        'roleID',
     ];
 }

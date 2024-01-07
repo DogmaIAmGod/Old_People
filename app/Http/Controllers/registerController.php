@@ -35,10 +35,15 @@ class registerController extends Controller
 
         $individualID = $individual->individualID;
 
-        password::create([
+        passwords::create([
             'individualID'=>$individualID,
-            'password' =>$data['password']
+            'password'=>$data['password']
         ]);
+
+        // passwords::create([
+        //     'individualID'=>$individualID,
+        //     'password' =>$data['password']
+        // ]);
 
         if($data['roleID'] == 1){
 

@@ -3,14 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Individuals;
+use App\Models\individuals;
 use App\Models\passwords;
 
-
-
-
-
-class LoginController extends Controller
+class generalTasksController extends Controller
 {
     public function login(Request $request)
     {

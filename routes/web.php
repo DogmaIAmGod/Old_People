@@ -42,8 +42,7 @@ use App\Http\Controllers\familyRosterController;
 use App\Http\Controllers\doctorController;
 use App\Http\Controllers\potdController;
 use App\Http\Controllers\doctorRosterController;
-
-
+use App\Http\Controllers\generalTasksController;
 //supervisor
 use App\Http\Controllers\supervisorprofileManagerController;
 
@@ -65,12 +64,15 @@ Route::get('/', function () {
     return view('home/welcome');
 });
 
+Route::get('/login',[generalTasksController::class,'login'])->name('login');
+Route::post('/validateLogin',[generalTasksController::class,'validateLogin'])->name('validateLogin');
+
 Route::get('/register',[registerController::class,'register'])->name('register');
 Route::post('/register-submit', [registerController::class, 'registerUser'])->name('register.submit');
 Route::get('/roleInsertion',[roleInsertionController::class,'roleInsertion'])->name('roleInsertion');
 
-Route::get('/login',[loginController::class,'login'])->name('login');
-Route::post('/validateLogin', [loginController::class, 'validateLogin'])->name('validateLogin');
+// Route::get('/login',[loginController::class,'login'])->name('login');
+// Route::post('/validateLogin', [loginController::class, 'validateLogin'])->name('validateLogin');
 
 // Route::get('/dashboardRoute', [dashboardController::class, 'showdashboard'])->name('dashboard');
 

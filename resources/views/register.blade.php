@@ -32,7 +32,7 @@
             });
 
             inputField.addEventListener('keydown', function(event) {
-                if (inputField.value.length >= 13 && event.key !== 'Backspace' && event.key !== 'Tab') {
+                if (inputField.value.length >= 14 && event.key !== 'Backspace' && event.key !== 'Tab') {
                     event.preventDefault();
                 }
             });
@@ -45,7 +45,7 @@
                         formattedNumber += '(';
                     }
                     if (i === 3) {
-                        formattedNumber += ')';
+                        formattedNumber += ') ';
                     }
                     if (i === 6) {
                         formattedNumber += '-';
@@ -87,7 +87,7 @@
                     <li>
                         <label for="phone">Phone</label>
                         <input type="tel" id="numberInput" name="phone" placeholder="Enter your phone number"
-                            pattern="\(\d{3}\)\d{3}-\d{4}" required>
+                            pattern="\(\d{3}\) \d{3}-\d{4}" required>
                     </li>
                     <li>
                         <label for="dob">Date of Birth</label>

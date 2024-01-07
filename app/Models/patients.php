@@ -8,19 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class patients extends Model
 {
     protected $primaryKey = 'patientID';
-    
+
         protected $fillable = [
             'patientID',
             'individualID',
             'careGroupID',
             'familyCode',
             'admissionDate',
-            'morningMed',
-            'afternoonMed',
-            'nightMed',
-            'breakfast',
-            'lunch',
-            'diner'
+            'dischargeDate'
         ];
         public function individual()
         {

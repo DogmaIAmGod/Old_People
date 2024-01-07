@@ -2,8 +2,6 @@
 
 use App\Http\Controllers\activityController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\registerController;
-use App\Http\Controllers\loginController;
 use App\Http\Controllers\additionalPInfoController;
 use App\Http\Controllers\roleInsertionController;
 use App\Http\Controllers\doctorAppointmentController;
@@ -13,20 +11,20 @@ use App\Http\Controllers\rosterController;
 use App\Http\Controllers\salariesController;
 use App\Http\Controllers\supervisorController;
 use App\Http\Controllers\userPaymentsController;
+
+//General Tasks
+use App\Http\Controllers\generalTasksController;
+
 //admin
 use App\Http\Controllers\adminNavigationController;
 use App\Http\Controllers\newRosterController;
 use App\Http\Controllers\dailyreportController;
-
-
-
 
 //patients
 use App\Http\Controllers\patientController;
 use App\Http\Controllers\patientscheduleController;
 use App\Http\Controllers\patienthubController;
 use App\Http\Controllers\setAppointmentController;
-
 
 //caregiver
 use App\Http\Controllers\caregiverController;
@@ -42,7 +40,7 @@ use App\Http\Controllers\familyRosterController;
 use App\Http\Controllers\doctorController;
 use App\Http\Controllers\potdController;
 use App\Http\Controllers\doctorRosterController;
-use App\Http\Controllers\generalTasksController;
+
 //supervisor
 use App\Http\Controllers\supervisorprofileManagerController;
 
@@ -64,21 +62,12 @@ Route::get('/', function () {
     return view('home/welcome');
 });
 
+//General tasks - Login, Register
 Route::get('/login',[generalTasksController::class,'login'])->name('login');
 Route::post('/validateLogin',[generalTasksController::class,'validateLogin'])->name('validateLogin');
-
-Route::get('/register',[registerController::class,'register'])->name('register');
-Route::post('/register-submit', [registerController::class, 'registerUser'])->name('register.submit');
-Route::get('/roleInsertion',[roleInsertionController::class,'roleInsertion'])->name('roleInsertion');
-
-// Route::get('/login',[loginController::class,'login'])->name('login');
-// Route::post('/validateLogin', [loginController::class, 'validateLogin'])->name('validateLogin');
-
-// Route::get('/dashboardRoute', [dashboardController::class, 'showdashboard'])->name('dashboard');
-
-Route::get('/roleInsertion',[roleInsertionController::class,'roleInsertion'])->name('roleInsertion');
-
-
+Route::get('/register',[generalTasksController::class,'register'])->name('register');
+Route::post('/register-submit',[generalTasksController::class, 'registerUser'])->name('register.submit');
+Route::get('/roleInsertion',[generalTasksController::class,'roleInsertion'])->name('roleInsertion');
 
 //admin route
 Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');

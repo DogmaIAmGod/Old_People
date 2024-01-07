@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->id('patientID');
             $table->unsignedBigInteger('individualID');
-            $table->unsignedBigInteger('careGroupID');
+            $table->unsignedBigInteger('careGroupID')->nullable();
             $table->integer('familyCode');
             $table->date('admissionDate');
             $table->date('dischargeDate')->nullable();
